@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import TabBar from "./components/TabBar/TabBar.vue"
+
 </script>
 
 <style scoped>
