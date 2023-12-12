@@ -12,7 +12,7 @@ const routes: RouteRecordRaw[] = [
         component: Login
     }
     ,{
-        path: "",
+        path: "/",
         name: "main",
         component: Main,
         beforeEnter: (to, from, next) => {
@@ -35,7 +35,7 @@ const routes: RouteRecordRaw[] = [
                 component: Mine
             },
             {
-                path: "",
+                path: "/",
                 name: "home",
                 component: Home
             }

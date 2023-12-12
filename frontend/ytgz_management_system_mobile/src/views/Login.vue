@@ -44,7 +44,7 @@ const onSubmit = (values: any) => {
     console.log(values)
     window.localStorage.setItem("token", "sylvie233")
     router.push({
-        name: "main"
+        path: "/"
     })
 }
 
