@@ -2,8 +2,8 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 import Main from "../views/Main.vue"
 import Login from "../views/Login.vue"
 import Home from "../views/Home.vue"
-import Work from "../views/Work.vue"
-import Mine from "../views/Mine.vue"
+import Work from "../views/Work/index.vue"
+import Mine from "../views/Mine/index.vue"
 
 const routes: RouteRecordRaw[] = [
     {
