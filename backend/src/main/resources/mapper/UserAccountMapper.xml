@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sylvie233.ytgz_management_system_api.mapper.UserAccountMapper">
+    <resultMap id="UserAccountResultMap" type="com.sylvie233.ytgz_management_system_api.entity.UserAccount">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <association property="user" javaType="com.sylvie233.ytgz_management_system_api.entity.User">
+            <id column="user_id" jdbcType="BIGINT" property="id" />
+            <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+            <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+            <result column="gender" jdbcType="INTEGER" property="gender" />
+            <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+            <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+            <result column="email" jdbcType="VARCHAR" property="email" />
+            <result column="status" jdbcType="INTEGER" property="status" />
+            <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+            <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        </association>
+    </resultMap>
+
+    <select id="getUserAccountById" parameterType="java.lang.Long" resultMap="UserAccountResultMap">
+        SELECT ua.id, ua.username, ua.password, u.id user_id, u.id user_id, u.nick_name, u.avatar, u.gender, u.birthday, u.mobile, u.email, u.status, u.create_time, u.update_time
+        FROM `ytgz_user_account` ua LEFT JOIN `ytgz_user` u
+        ON ua.user_id = u.id
+        WHERE ua.id = #{id}
+    </select>
+</mapper>

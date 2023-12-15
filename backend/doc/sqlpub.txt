@@ -1,0 +1,5 @@
+数据库名称	ygtz_jiaowu_test
+数据库用户	sylvie233
+数据库密码	Wikdyuora4HqNZQg
+数据库地址	mysql.sqlpub.com:3306
+注册邮箱	    sylvie233@126.com
