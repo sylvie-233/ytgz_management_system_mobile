@@ -25,6 +25,15 @@
                     <span>教师管理</span>
                 </el-menu-item>
             </el-sub-menu>
+            <el-sub-menu index="3">
+                <template #title>
+                    <el-icon><Briefcase /></el-icon>
+                    <span>教务管理</span>
+                </template>
+                <el-menu-item index="3-1">
+                    <span>学生请假</span>
+                </el-menu-item>
+            </el-sub-menu>
         </el-menu>
     </div>
 </template>
@@ -46,6 +55,14 @@ const handleClose = () => {}
         font-size: medium;
         justify-content: center;
         height: 45px;
+    }
+    .el-menu-item {
+        font-size: 16px;
+    }
+    .el-sub-menu__title {
+        span, i {
+            font-size: 16px;
+        }
     }
 }
 </style>

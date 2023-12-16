@@ -5,7 +5,7 @@
                 <AdminAside />
             </el-aside>
             <el-container>
-                <el-header height="50px">
+                <el-header height="90px">
                     <AdminHeader />
                 </el-header>
                 <el-main>
@@ -35,6 +35,10 @@ import AdminMain from "@/components/adminMain.vue"
         .el-main {
             padding: 0;
         }
+    }
+    .el-header {
+        padding: 0px;
+        padding-bottom: 18px;
     }
 }
 </style>
