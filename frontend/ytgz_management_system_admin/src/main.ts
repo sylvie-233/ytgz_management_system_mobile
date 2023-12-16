@@ -5,6 +5,7 @@ import router from './router'
 
 
 import 'element-plus/dist/index.css'
+import "animate.css"
 import "@/styles/index.css"
 
 import App from './App.vue'

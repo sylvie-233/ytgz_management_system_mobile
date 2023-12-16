@@ -6,8 +6,7 @@
             default-active="1"
             text-color="#fff"
             background-color="#304156"
-            @open="handleOpen"
-            @close="handleClose"
+            @select="handleSelect"
         >
             <el-menu-item index="1-1">
                 <el-icon><HomeFilled /></el-icon>
@@ -18,7 +17,7 @@
                     <el-icon><UserFilled /></el-icon>
                     <span>人员管理</span>
                 </template>
-                <el-menu-item index="2-1">
+                <el-menu-item index="2-1" >
                     <span>学生管理</span>
                 </el-menu-item>
                 <el-menu-item index="2-2">
@@ -39,8 +38,22 @@
 </template>
 
 <script setup lang="ts">
-const handleOpen = () => {}
-const handleClose = () => {}
+import { useRouter } from "vue-router"
+
+const indexRouteMap = new Map([
+    ["1-1", "/admin"],
+    ["2-1", "/admin/student_manage"],
+    ["2-2", "/admin/teacher_manage"],
+])
+
+const router = useRouter()
+
+const handleSelect = (index:any) => {
+    router.push({
+        path: indexRouteMap.get(index) || "/admin"
+    })
+}
+
 </script>
 
 <style lang="less" scoped>

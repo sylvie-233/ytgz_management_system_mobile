@@ -67,12 +67,14 @@ import { FormInstance, FormRules } from "element-plus";
 import { reactive, ref } from "vue"
 import login_center_bg from "@/assets/images/login_center_bg.png"
 import { User, Lock } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router"
 
 interface RuleForm {
   username: string
   password: string
 }
 
+const router = useRouter()
 
 const validateUsername = (rule: any, value: any, callback: any) => {
     if (!value) {
@@ -119,6 +121,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
       console.log('登录成功!')
       // TODO 处理登录逻辑
       loading.value = true
+      window.setTimeout(() => {
+        router.push("/admin")
+      }, 1200)
     } else {
       console.log('登录失败', fields)
     }

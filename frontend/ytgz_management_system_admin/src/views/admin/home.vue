@@ -1,12 +1,28 @@
 <template>
     <div class="dzyt-home-top">
-        <el-card style="height: 280px;">
-            <el-carousel height="150px">
-                <el-carousel-item v-for="item in 4" :key="item">
-                    <h3 class="small justify-center" text="2xl">{{ item }}</h3>
-                </el-carousel-item>
-            </el-carousel>
-        </el-card>
+        <el-row justify="space-between">
+            <el-col :span="10">
+                <el-card style="height: 100%" body-style="height: 100%;box-sizing:border-box;">
+                    <el-carousel height="280px">
+                        <el-carousel-item v-for="item in 4" :key="item">
+                            <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+                        </el-carousel-item>
+                    </el-carousel>
+                </el-card>
+            </el-col>
+            <el-col :span="6">
+                <el-card class="sum-card">
+                    <div class="teacher-nums">教师总数</div>
+                    <div class="teacher-text">237</div>
+                </el-card>
+            </el-col>
+            <el-col :span="6">
+                <el-card class="sum-card">
+                    <div class="student-nums">学生总数</div>
+                    <div class="student-text">237</div>
+                </el-card>
+            </el-col>
+        </el-row>
     </div>
     <div class="dzyt-home-center">
         <el-row justify="start">
@@ -81,6 +97,11 @@ onMounted(() => {
 <style lang="less"  scoped>
 .dzyt-home-top {
     padding: 0 20px;
+    min-height: 280px;
+    .el-row {
+        height: 100%;
+        min-height: 280px;
+    }
 }
 .dzyt-home-center {
     margin-top: 20px;
@@ -108,4 +129,34 @@ onMounted(() => {
     }
 }
 
+.sum-card {
+    height: 100%;
+    border-radius: 68px;
+    .student-nums,
+    .teacher-nums {
+        height: 70%;
+        font-size: 28px;
+        box-sizing: border-box;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 48px;
+        color: #fff;
+    }
+    .student-text,
+    .teacher-text {
+        font-size: 48px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px;
+    }
+    background-color: #75B0FF;
+    &:hover {
+        background-color: #fff;
+        transition: all 0.3s;
+        .teacher-nums, .teacher-text, .student-nums, .student-text {
+            color: #75B0FF;
+        }
+    }
+}
 </style>
