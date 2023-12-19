@@ -25,4 +25,23 @@ CREATE TABLE  `ytgz_user_account` (
     FOREIGN KEY (`user_id`) REFERENCES ytgz_user(id)
 )
 
+DROP TABLE IF EXISTS `ytgz_student`;
+CREATE TABLE  `ytgz_student` (
+    `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `name` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '姓名',
+    `gender` int(0) CHARACTER SET utf8 NOT NULL COMMENT '性别',
+    `age` int(0) CHARACTER SET utf8 NOT NULL COMMENT '年龄',
+    `grade` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '年级',
+    `clazz` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '班级',
+    `avatar` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '头像',
+    `nation` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '民族',
+    `address` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '地址',
+    `contact` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '联系人',
+    `mobile` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '手机号',
+    `graduation` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '毕业学校',
+    `idcard` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '身份证',
+    `agreement` int(0) CHARACTER SET utf8 NOT NULL COMMENT '就读协议',
+    primary key (`id`) USING BTREE
+)
+
 

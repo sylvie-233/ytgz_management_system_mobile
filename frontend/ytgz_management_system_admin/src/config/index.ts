@@ -3,5 +3,5 @@ interface AdminConfig {
 }
 
 export default <AdminConfig> {
-    baseUrl: "http://localhost:8888"
+    baseUrl: "http://localhost:8080"
 }

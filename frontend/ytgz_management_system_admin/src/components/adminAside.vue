@@ -33,6 +33,15 @@
                     <span>学生请假</span>
                 </el-menu-item>
             </el-sub-menu>
+            <el-sub-menu index="4">
+                <template #title>
+                    <el-icon><DataLine /></el-icon>
+                    <span>信息统计</span>
+                </template>
+                <el-menu-item index="3-1">
+                    <span>体温测量</span>
+                </el-menu-item>
+            </el-sub-menu>
         </el-menu>
     </div>
 </template>

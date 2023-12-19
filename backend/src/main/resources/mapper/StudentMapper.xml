@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sylvie233.ytgz_management_system_api.mapper.StudentMapper">
+    <resultMap id="StudentResultMap" type="com.sylvie233.ytgz_management_system_api.entity.Student">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="age" jdbcType="INTEGER" property="age" />
+        <result column="grade" jdbcType="VARCHAR" property="grade" />
+        <result column="clazz" jdbcType="VARCHAR" property="clazz" />
+        <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+        <result column="nation" jdbcType="VARCHAR" property="nation" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="contact" jdbcType="VARCHAR" property="contact" />
+        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+        <result column="graduation" jdbcType="VARCHAR" property="graduation" />
+        <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+        <result column="agreement" jdbcType="INTEGER" property="agreement" />
+    </resultMap>
+
+    <select id="getStudentList" resultMap="StudentResultMap">
+        select
+        s.id, s.name, s.gender, s.age, s.grade, s.clazz, s.avatar, s.nation, s.address, s.contact, s.mobile, s.graduation, s.idcard, s.agreement
+        from ytgz_student s
+        where 1 = 1
+        <if test="ew != null">
+            <if test="ew.nonEmptyOfWhere">
+                AND
+            </if>
+            ${ew.sqlSegment}
+        </if>
+    </select>
+</mapper>
