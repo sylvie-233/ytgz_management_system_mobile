@@ -16,19 +16,24 @@
                             />
                         </el-select>
                         <el-button class="toolbar-add" type="primary" :icon="CirclePlus">添加</el-button>
+                        <el-button class="toolbar-delete" type="danger" :icon="Delete">批量删除</el-button>
                     </div>
-                    <div class="toolvar-right">
+                    <div class="toolbar-right">
                         <el-input
                             v-model="searchText"
-                            placeholder="搜索"
-                            :prefix-icon="Search"
+                            placeholder="请输入姓名进行检索"
+                            style="margin-right: 6px;"
                         />
+                        <el-button type="primary" :icon="Search" @click="searchHandle">搜索</el-button>
                     </div>
                 </div>
             </div>
             <el-divider />
             <div class="box-content">
-                <el-table :data="studentData" style="width: 100%" size="large">
+                <el-table :data="studentData" style="width: 100%" size="large"
+                    @selection-change="handleSelectionChange"
+                >
+                    <el-table-column type="selection" width="55" />
                     <el-table-column prop="index" label="序号" />
                     <el-table-column prop="name" label="姓名" />
                     <el-table-column prop="gender" label="性别" />
@@ -44,14 +49,25 @@
                     </el-table-column>
                 </el-table>
             </div>
-            <div class="box-footer">233</div>
+            <div class="box-footer">
+                <el-pagination
+                    v-model:current-page="currentPage"
+                    v-model:page-size="pageSize"
+                    :page-sizes="[10, 20, 50, 100]"
+                    :disabled="pgDisabled"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="400"
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                />
+            </div>
         </el-card>
     </div>
 </template>
 
 <script setup lang="ts">
 import { reactive, ref, onMounted } from "vue";
-import { Search, CirclePlus } from "@element-plus/icons-vue"
+import { Search, CirclePlus, Delete } from "@element-plus/icons-vue"
 import { getStudentList } from "@/api/StudentAPI"
 
 
@@ -71,6 +87,11 @@ interface studentInfo {
 let studentData = ref<studentInfo[]>([
 ])
 
+
+
+const currentPage = ref<number>(1)
+const pageSize = ref<number>(10)
+const pgDisabled = ref<boolean>(false)
 const searchText = ref<string>("")
 const classSelect = ref<string>("")
 const classOptions = reactive<classOption[]>([
@@ -87,6 +108,21 @@ const classOptions = reactive<classOption[]>([
         value: "G2306"
     },
 ])
+
+const handleSizeChange = (val: number) => {
+  console.log(`${val} items per page`)
+}
+const handleCurrentChange = (val: number) => {
+  console.log(`current page: ${val}`)
+}
+
+const handleSelectionChange = (val: studentInfo[]) => {
+    console.log(val)
+}
+
+const searchHandle = () => {
+    console.log(searchText.value)
+}
 
 onMounted(() => {
     getStudentList().then((resp) => {
@@ -142,7 +178,10 @@ onMounted(() => {
                         }
                     }
                 }
-                .toolvar-right {
+                .toolbar-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
                 }
                 
             }
@@ -162,6 +201,10 @@ onMounted(() => {
                 background: rgba(0,0,0,0.1);
             }
             
+        }
+        .box-footer {
+            box-sizing: border-box;
+            padding: 20px;
         }
     }
 }

@@ -11,7 +11,7 @@ const routes: RouteRecordRaw[] = [
         children: [
             {
                 path: "student_manage",
-                component: () => import("@/views/admin/studentManage.vue")
+                component: () => import("@/views/admin/StudentManage/index.vue")
             },
             {
                 path: "teacher_manage",
