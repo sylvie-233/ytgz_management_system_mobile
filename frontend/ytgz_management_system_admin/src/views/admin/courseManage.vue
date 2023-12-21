@@ -15,14 +15,15 @@
                             :value="item.value"
                             />
                         </el-select>
-                        <el-button class="toolbar-add" type="primary" :icon="CirclePlus">添加</el-button>
+                        <el-button type="primary" :icon="RefreshRight" style="margin-left: 6px;">重置</el-button>
                     </div>
-                    <div class="toolvar-right">
+                    <div class="toolbar-right">
                         <el-input
                             v-model="searchText"
-                            placeholder="搜索"
-                            :prefix-icon="Search"
+                            placeholder="请输入教师姓名进行检索"
+                            style="margin-right: 10px;"
                         />
+                        <el-button type="primary" :icon="Search" @click="searchHandle">搜索</el-button>
                     </div>
                 </div>
             </div>
@@ -37,7 +38,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { Search, CirclePlus } from "@element-plus/icons-vue"
+import { Search, RefreshRight } from "@element-plus/icons-vue"
 import CourseCalendar from "@/components/CourseCalendar/index.vue"
 
 
@@ -60,6 +61,10 @@ const classOptions: classOption[] = [
         value: "G2305"
     },
 ]
+
+const searchHandle = () => {
+
+}
 
 onMounted(() => {
 })
@@ -88,17 +93,11 @@ onMounted(() => {
                 .toolbar-left {
                     display: flex;
                     align-items: center;
-                    .toolbar-add {
-                        margin-left: 20px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        .el-icon {
-                            font-size: 24px;
-                        }
-                    }
                 }
-                .toolvar-right {
+                .toolbar-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
                 }
                 
             }
