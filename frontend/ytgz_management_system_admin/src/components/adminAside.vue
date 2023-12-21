@@ -30,6 +30,9 @@
                     <span>教务管理</span>
                 </template>
                 <el-menu-item index="3-1">
+                    <span>课表管理</span>
+                </el-menu-item>
+                <el-menu-item index="3-2">
                     <span>学生请假</span>
                 </el-menu-item>
             </el-sub-menu>
@@ -53,6 +56,7 @@ const indexRouteMap = new Map([
     ["1-1", "/admin"],
     ["2-1", "/admin/student_manage"],
     ["2-2", "/admin/teacher_manage"],
+    ["3-1", "/admin/course_manage"],
 ])
 
 const router = useRouter()
