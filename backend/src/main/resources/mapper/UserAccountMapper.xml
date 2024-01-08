@@ -25,4 +25,10 @@
         ON ua.user_id = u.id
         WHERE ua.id = #{id}
     </select>
+    <select id="getUserAccountByUsername" parameterType="java.lang.String" resultMap="UserAccountResultMap">
+        SELECT ua.id, ua.username, ua.password, u.id user_id, u.id user_id, u.nick_name, u.avatar, u.gender, u.birthday, u.mobile, u.email, u.status, u.create_time, u.update_time
+        FROM `ytgz_user_account` ua LEFT JOIN `ytgz_user` u
+        ON ua.user_id = u.id
+        WHERE ua.username = #{username}
+    </select>
 </mapper>

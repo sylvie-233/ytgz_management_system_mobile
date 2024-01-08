@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sylvie233.ytgz_management_system_api.mapper.UserRoleMapper">
+    <resultMap id="userRoleResultMap" type="com.sylvie233.ytgz_management_system_api.entity.UserRole">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="role" jdbcType="VARCHAR" property="role" />
+    </resultMap>
+    
+    <select id="getUserRolesByUserAccountId" resultMap="userRoleResultMap">
+        select
+            r.id, r.role
+        from ytgz_user_role r
+        where r.id = #{id}
+    </select>
+</mapper>

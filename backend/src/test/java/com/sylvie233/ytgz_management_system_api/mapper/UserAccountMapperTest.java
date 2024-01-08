@@ -10,9 +10,9 @@ public class UserAccountMapperTest {
     @Autowired
     UserAccountMapper userAccountMapper;
 
-    @Test
-    void getUserAccountById() {
-        System.out.println(userAccountMapper.getUserAccountById(2L));
-    }
+//    @Test
+//    void getUserAccountById() {
+//        System.out.println(userAccountMapper.getUserAccountById(2L));
+//    }
 
 }

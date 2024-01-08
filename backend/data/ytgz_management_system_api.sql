@@ -25,6 +25,15 @@ CREATE TABLE  `ytgz_user_account` (
     FOREIGN KEY (`user_id`) REFERENCES ytgz_user(id)
 )
 
+DROP TABLE IF EXISTS `ytgz_user_role`;
+CREATE TABLE  `ytgz_user_role` (
+    `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
+    `role` varchar(100) CHARACTER SET utf8 NOT NULL COMMENT '角色',
+    `user_account_id` bigint(0) NOT NULL COMMENT '账户外键',
+    primary key (`id`) USING BTREE,
+    FOREIGN KEY (`user_account_id`) REFERENCES ytgz_user_account(id)
+)
+
 DROP TABLE IF EXISTS `ytgz_student`;
 CREATE TABLE  `ytgz_student` (
     `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '主键',
