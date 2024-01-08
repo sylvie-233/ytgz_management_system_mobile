@@ -10,3 +10,8 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
 
+jwt:
+  secret: sylvie233
+  expiration: 604800
+  tokenHead: Bearer
+  tokenHeader: Authorization

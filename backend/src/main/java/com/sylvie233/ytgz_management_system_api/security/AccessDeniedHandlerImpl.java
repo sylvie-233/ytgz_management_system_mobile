@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) {
         Result<String> result = new Result<String>("403", "您的权限不足！", "登录失败");
         String json = JSON.toJSONString(result);
         // 将字符串渲染到客户端

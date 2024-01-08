@@ -19,7 +19,7 @@ public class StudentController {
 
     @GetMapping("/student/all")
     public Result<List<Student>> getStudentList() {
-        Result<List<Student>> result = new Result<>();
+        Result<List<Student>> result = new Result<List<Student>>();
         result.setCode("200");
         result.setMsg("学生列表");
         result.setData(studentService.getStudentList());

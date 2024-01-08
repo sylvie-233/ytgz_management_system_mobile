@@ -1,4 +1,4 @@
-package com.sylvie233.ytgz_management_system_api.mapper;
+package com.sylvie233.ytgz_management_system_api.security;
 
 import com.sylvie233.ytgz_management_system_api.entity.UserAccount;
 import com.sylvie233.ytgz_management_system_api.entity.UserRole;

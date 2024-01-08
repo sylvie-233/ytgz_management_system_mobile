@@ -10,6 +10,6 @@
         select
             r.id, r.role
         from ytgz_user_role r
-        where r.id = #{id}
+        where r.user_account_id = #{id}
     </select>
 </mapper>
